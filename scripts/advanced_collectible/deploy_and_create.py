@@ -4,6 +4,7 @@ from scripts.helpful_scripts import (
     get_contract,
     fund_with_link,
 )
+
 from brownie import config, network, AdvancedCollectible
 
 sample_token_uri = "https://ipfs.io/ipfs/Qmd9MCGtdVz2miNumBHDbvj8bigSgTwnr4SbyH6DNnpWdt?filename=0-PUG.json"
@@ -22,6 +23,7 @@ def deploy_and_create():
     creating_tx = advanced_collectible.createCollectible({"from": account})
     creating_tx.wait(1)
     print("New token has been created!")
+    return advanced_collectible, creating_tx
 
 
 def main():

@@ -12,7 +12,7 @@ contract SimpleCollectible is ERC721URIStorage {
         tokenCounter = 0;
     }
 
-    function createCollectable(string memory tokenURI)
+    function createCollectible(string memory tokenURI)
         public
         returns (uint256)
     {
