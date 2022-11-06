@@ -4,14 +4,14 @@ from scripts.helpful_scripts import (
     get_contract,
     fund_with_link,
 )
-
-from brownie import config, network, AdvancedCollectible
-
-sample_token_uri = "https://ipfs.io/ipfs/Qmd9MCGtdVz2miNumBHDbvj8bigSgTwnr4SbyH6DNnpWdt?filename=0-PUG.json"
+from brownie import AdvancedCollectible, network, config
 
 
 def deploy_and_create():
     account = get_account()
+    # We want to be able to use the deployed contracts if we are on a testnet
+    # Otherwise, we want to deploy some mocks and use those
+    # Goerli
     advanced_collectible = AdvancedCollectible.deploy(
         get_contract("vrf_coordinator"),
         get_contract("link_token"),
